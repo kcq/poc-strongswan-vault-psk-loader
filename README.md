@@ -4,7 +4,7 @@
 
 The PoC adds three PSKs to StrongSwan (a static PSK and two PSKs from Vault when it detects those new PSKs).
 
-The PoC service runs until it adds two PSKs it discovers in Vault. Note that the PSK discovery process is pretty basic. A real Vault secret notification implementation is not in scope.
+The PoC service runs until it adds two PSKs it discovers in Vault.
 
 ## PSK Loader Service
 
@@ -25,3 +25,11 @@ Create a PSK through the Vault UI (login with token: `poc-vault-token`). Use the
 * Version Data (field key value): `name` -> `psk.name.one` , `value` -> `psk.value.one`
 
 Add another PSK using the helper script (`vault_add_psk_two.command`).
+
+## Notes
+
+* Need a recent version of StrongSwan because the ability to load PSKs was not a part of the original version of the Vici interface/plugin.
+* The PSK discovery process is pretty basic. A real Vault secret notification implementation is not in scope.
+
+
+
