@@ -6,6 +6,10 @@ The PoC adds three PSKs to StrongSwan (a static PSK and two PSKs from Vault when
 
 The PoC service runs until it adds two PSKs it discovers in Vault. Note that the PSK discovery process is pretty basic. A real Vault secret notification implementation is not in scope.
 
+## PSK Loader Service
+
+The service lists the current PSKs (their IDs) whenever it adds a new PSK to verify that StrongSwan knows about it. Note that the PSKs loaded through other interfaces will not be visible (including the PSKs defined in the StrongSwan config files).
+
 ## Docker Compose Notes
 
 * Run `dc_build.command` to build the components
@@ -20,4 +24,4 @@ Create a PSK through the Vault UI (login with token: `poc-vault-token`). Use the
 * Path for this section: `psk/one` (`psk` - path prefix, `one` - key name)
 * Version Data (field key value): `name` -> `psk.name.one` , `value` -> `psk.value.one`
 
-Add another PSK using the helper script (vault_add_psk_two.command).
+Add another PSK using the helper script (`vault_add_psk_two.command`).

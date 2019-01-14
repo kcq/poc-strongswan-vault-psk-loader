@@ -94,6 +94,7 @@ func main() {
 		}
 	}
 
+	time.Sleep(7 * time.Second)
 	fmt.Println("StrongSwan/Vault PSK PoC: done!")
 }
 
